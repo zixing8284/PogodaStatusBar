@@ -107,9 +107,12 @@ class PogodaStatusBar(sublime_plugin.EventListener):
             status = self._getStatus(weather)
             temp = weather.findall('day_part')[0].find('temperature').text
 
-            traffic = xml.find('traffic').find('region')
-            tlevel = traffic.find('level').text
-            ticon = self._getTrafficIcon(traffic)
+            # traffic = xml.find('traffic').find('region')
+            # tlevel = traffic.find('level').text
+            # ticon = self._getTrafficIcon(traffic)
+
+            tlevel = "green"
+            ticon = "clear"
 
             self._status = self._template % vars()
             return True
